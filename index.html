@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ChatSpace</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="authScreen" class="screen">
+  <div class="auth-card">
+    <div class="brand big"><span>💬</span> ChatSpace</div>
+    <p class="muted">Your community. Your rooms. Your chat.</p>
+    <div class="tabs"><button class="tab active" data-tab="login">Login</button><button class="tab" data-tab="register">Create account</button></div>
+    <form id="authForm">
+      <label>Username<input id="authUser" required minlength="3" maxlength="20" autocomplete="username" placeholder="Choose a username"></label>
+      <label>Password<input id="authPass" required minlength="6" type="password" autocomplete="current-password" placeholder="At least 6 characters"></label>
+      <button class="primary" id="authSubmit">Login</button>
+      <p id="authError" class="error"></p>
+    </form>
+    <p class="tiny">Demo version: accounts and messages are saved in this browser.</p>
+  </div>
+</div>
+
+<div id="app" class="app hidden">
+<aside class="sidebar">
+  <div class="brand"><span>💬</span> ChatSpace</div>
+  <button class="new-room" id="newRoomBtn">＋ New room</button>
+  <div class="section-title">ROOMS</div>
+  <div id="roomList" class="room-list"></div>
+  <div class="user-card">
+    <div class="avatar" id="userAvatar">G</div>
+    <div class="user-info"><strong id="currentUser">Guest</strong><small>Online</small></div>
+    <button id="logoutBtn" title="Log out">↪</button>
+  </div>
+</aside>
+
+<main class="chat">
+<header class="chat-header">
+  <div><h1 id="roomTitle"># general</h1><p id="roomTopic">Welcome to the community!</p></div>
+  <button class="members-btn" id="membersBtn">👥 <span id="memberCount">1</span></button>
+</header>
+<section class="messages" id="messages"></section>
+<form class="composer" id="messageForm">
+  <input id="messageInput" autocomplete="off" maxlength="500" placeholder="Message #general...">
+  <button type="submit">➤</button>
+</form>
+</main>
+
+<aside class="members" id="membersPanel">
+  <div class="members-title">ONLINE</div>
+  <div id="memberList"></div>
+</aside>
+</div>
+
+<div class="modal hidden" id="modal">
+ <div class="modal-box">
+  <button class="close" id="closeModal">×</button>
+  <h2>Create a room</h2><p class="muted">Room names can contain letters, numbers, - and _.</p>
+  <input id="roomInput" maxlength="24" placeholder="e.g. music">
+  <button class="primary" id="createRoomBtn">Create room</button>
+  <p id="roomError" class="error"></p>
+ </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
